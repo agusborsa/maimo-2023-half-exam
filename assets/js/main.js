@@ -25,7 +25,11 @@ const people = [
     { name: "Anneli", role: "junior" }
 ]
 
-const message = ``
+/* answ */
+cantidadDeSenior = 0;
+/* answ */
+
+const message = `Hay ${people.length} personas en el ${teamName} team. \nSus nombres son${people.map(({ name }) => " " + name)}.\n${people.filter(({role}) => role === "senior").length} de ellos son senior con experiencia.`
 
 console.log('Ejercico _1  ->', message)
 
@@ -55,15 +59,18 @@ const myObjects = [
 
 const detectCollision = (objects, point) => {
 
-    for (let i = 0; i < objects.length; i++) {
+    /* for (let i = 0; i < objects.length; i++) {
         let object = objects[i]
         if (point.x >= object.x && point.x <= object.x + object.width &&
             point.y >= object.y && point.y <= object.y + object.height)
             return object
-    }
+    } */
 
     //Comentar el for y colocar acá la respuesta
-
+    const { x: objectX, y: objectY } = objects;
+    const { x: pointX, y: pointY } = point;
+    
+    myObjects.find(({ objectX }) => {});
    // const { x: pointX, y: pointY } = point
    // return true
 
@@ -91,7 +98,7 @@ const profile = {
     }
 }
 
-const twitter = ``
+const { twitter } = profile.social;
 
 console.log('Ejercico _3_a  ->', twitter); // https://twitter.com/hearsparkbox
 
@@ -100,9 +107,11 @@ console.log('Ejercico _3_a  ->', twitter); // https://twitter.com/hearsparkbox
  _3_b Convertir exampleFunction en una arrow function de una sola linea..., sugar sintax.
 */
 
-function exampleFunction(fecha) {
+/* function exampleFunction(fecha) {
     return `Code is fun, I love Javascript today: ${fecha}`;
-}
+} */
+
+exampleFunction = (fecha) => `Code is fun, I love Javascript today: ${fecha}`;
 
 console.log('Ejercicio _3_b ->', exampleFunction(Date()))
 
@@ -120,7 +129,7 @@ const operaciones = [
     { num1: 60, num2: 0 },
 ]
 
-console.log('Ejercicio _3_c ->', ``)
+console.log('Ejercicio _3_c ->', `${operaciones.map(({ num1, num2 }) => num1*num2 )}`);
 
 
 
@@ -156,14 +165,16 @@ const zonaB = [
 ]
 
 
-const semiFinalistasZonaA = ``
-const semiFinalistasZonaB = ``
+const semiFinalistasZonaA = zonaA.filter(({semiFinalista}) => semiFinalista);
+const semiFinalistasZonaB = zonaB.filter(({semiFinalista}) => semiFinalista);
 
-const semiFinal = ``
+const semiFinal = [...semiFinalistasZonaA, ...semiFinalistasZonaB];
 
-const final = ``
+const final = semiFinal.filter(({ pais }) => (pais == "Argentina" || pais == "Brasil"));
 
-const finalResultado = ``
+const finalResultado =  /* final.map(({ ...final, goles: Math.floor(Math.random() * 101)} ) => pais) */`` //dejo lo que estaba intentando pero lo comento porque sino se rompe todo el js
+
+console.log(finalResultado);
 
 const campeon = ``;
 
